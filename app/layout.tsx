@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "skills",
-  description: "skills",
+  title: "skills — Claude Code skills marketplace",
+  description:
+    "sisqo's personal collection of Claude Code skills, packaged as a single installable plugin.",
 };
 
 export default function RootLayout({

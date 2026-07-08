@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skills",
+  "metadata": {
+    "description": "Personal collection of Claude Code skills, packaged as a single plugin."
+  },
+  "owner": {
+    "name": "sisqo"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "description": "Personal collection of Claude Code skills, packaged as a single plugin.",
+      "version": "0.1.0",
+      "author": {
+        "name": "sisqo"
+      },
+      "source": "./plugin",
+      "homepage": "https://skills.sisqo.dev",
+      "tags": ["skills"]
+    }
+  ]
+}
