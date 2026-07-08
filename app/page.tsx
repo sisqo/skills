@@ -71,6 +71,31 @@ export default async function Home() {
                       </div>
                     </div>
                   )}
+
+                  {skill.examples && skill.examples.length > 0 && (
+                    <div className="mt-3">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
+                        Examples
+                      </p>
+                      <ul className="mt-1 flex flex-col gap-2">
+                        {skill.examples.map((example) => (
+                          <li
+                            key={example.command}
+                            className="rounded-md border border-black/10 bg-black/[.02] p-3 dark:border-white/15 dark:bg-white/[.03]"
+                          >
+                            <div className="font-mono text-xs">
+                              {example.command}
+                            </div>
+                            {example.description && (
+                              <p className="mt-1 text-xs text-black/60 dark:text-white/60">
+                                {example.description}
+                              </p>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

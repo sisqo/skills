@@ -11,6 +11,17 @@ summary: >
   sales, or support) and choose how much detail you want. Perfect for
   stakeholder updates, product docs, or answering "wait, how does this
   actually work?"
+examples:
+  - command: "/code-to-business loyalty points --audience sales"
+    description: "Locates the loyalty points logic, writes a sales-facing brief at standard depth."
+  - command: "/code-to-business src/billing/refunds --audience management --depth short"
+    description: "Explicit path, ~100-word brief for management."
+  - command: "/code-to-business how password resets work --audience support --depth deep"
+    description: "Business concept (not a path), in-depth support-facing brief including edge cases and known limitations."
+  - command: "/code-to-business checkout flow"
+    description: "Topic given, no --audience: asks which audience before writing anything."
+  - command: "/code-to-business"
+    description: "No arguments at all: asks what to analyze before proceeding."
 ---
 
 # Code to Business
@@ -48,11 +59,3 @@ Tailor emphasis to the audience: `management` → outcomes, risks, costs; `produ
 - **Length**: per `--depth` (default standard, 150–400 words).
 - **Language**: follow the conversation's language, section headings included.
 - **Output**: text/markdown in chat; no file export unless explicitly requested.
-
-## Examples
-
-- `/code-to-business loyalty points --audience sales` — locates the loyalty points logic, writes a sales-facing brief at standard depth.
-- `/code-to-business src/billing/refunds --audience management --depth short` — explicit path, ~100-word brief for management.
-- `/code-to-business how password resets work --audience support --depth deep` — business concept (not a path), in-depth support-facing brief including edge cases and known limitations.
-- `/code-to-business checkout flow` — topic given, no `--audience`: ask which audience before writing anything.
-- `/code-to-business` — no arguments at all: ask what to analyze before proceeding.
