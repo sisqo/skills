@@ -8,6 +8,8 @@ export type Skill = {
   description: string;
   version?: string;
   license?: string;
+  userInvocable?: boolean;
+  argumentHint?: string;
 };
 
 const SKILLS_DIR = path.join(process.cwd(), "plugin", "skills");
@@ -44,6 +46,8 @@ export async function getSkills(): Promise<Skill[]> {
       description: data.description,
       version: data.version,
       license: data.license,
+      userInvocable: data["user-invocable"],
+      argumentHint: data["argument-hint"],
     });
   }
 

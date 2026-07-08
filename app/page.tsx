@@ -14,9 +14,15 @@ export default async function Home() {
           </p>
         </header>
 
-        <section className="flex flex-col gap-2 rounded-lg border border-black/10 bg-black/[.02] p-4 font-mono text-sm dark:border-white/15 dark:bg-white/[.03]">
-          <div>/plugin marketplace add sisqo/skills</div>
-          <div>/plugin install skills@skills</div>
+        <section className="flex flex-col gap-2">
+          <h2 className="text-lg font-semibold">Install</h2>
+          <p className="text-sm text-black/60 dark:text-white/60">
+            Installs the whole plugin — every skill below comes with it.
+          </p>
+          <div className="flex flex-col gap-2 rounded-lg border border-black/10 bg-black/[.02] p-4 font-mono text-sm dark:border-white/15 dark:bg-white/[.03]">
+            <div>/plugin marketplace add sisqo/skills</div>
+            <div>/plugin install skills@skills</div>
+          </div>
         </section>
 
         <section className="flex flex-col gap-4">
@@ -45,6 +51,17 @@ export default async function Home() {
                   <p className="mt-2 text-sm text-black/70 dark:text-white/70">
                     {skill.description}
                   </p>
+                  {skill.userInvocable && (
+                    <div className="mt-3">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
+                        Usage
+                      </p>
+                      <div className="mt-1 rounded-md border border-black/10 bg-black/[.02] p-3 font-mono text-xs dark:border-white/15 dark:bg-white/[.03]">
+                        /{skill.name}
+                        {skill.argumentHint ? ` ${skill.argumentHint}` : ""}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
