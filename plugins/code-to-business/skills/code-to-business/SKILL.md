@@ -3,6 +3,14 @@ name: code-to-business
 description: Analyzes a codebase (an explicitly named path/module or a business concept to locate) and produces a jargon-free descriptive text for non-technical teams. Arguments are all optional in the string — a free-form topic (path or business concept), an `--audience management|product|sales|support` flag, and a `--depth short|standard|deep` flag, in any order. No topic given → ask the user what to analyze. No --audience given and not deducible from the conversation → ask before writing. No --depth given → default to standard. Use this skill whenever the user asks to explain a feature, module, flow, or rule found in code to a business audience (management, product, stakeholders, sales, support), even if they don't say "business" — e.g. "/code-to-business loyalty points --audience sales", "explain how X works for the product team", "brief for stakeholders on Z", "translate this logic into plain terms". Do NOT use it when the explanation is technical and aimed at developers.
 user-invocable: true
 argument-hint: "[topic-or-path — omit to be asked] [--audience management|product|sales|support] [--depth short|standard|deep]"
+summary: >
+  Turn any part of your codebase into a brief anyone can understand. Name a
+  module or just describe the concept — "how password resets work" — and it
+  finds the relevant code, then explains it in plain language, with zero
+  technical jargon. Tailor the result to your audience (management, product,
+  sales, or support) and choose how much detail you want. Perfect for
+  stakeholder updates, product docs, or answering "wait, how does this
+  actually work?"
 ---
 
 # Code to Business

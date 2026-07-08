@@ -48,7 +48,7 @@ export default async function Home() {
                     )}
                   </div>
                   <p className="mt-2 text-sm text-black/70 dark:text-white/70">
-                    {skill.description}
+                    {skill.summary ?? skill.description}
                   </p>
 
                   <div className="mt-3">
@@ -76,6 +76,18 @@ export default async function Home() {
             </ul>
           )}
         </section>
+
+        <footer className="text-sm text-black/50 dark:text-white/50">
+          by{" "}
+          <a
+            href="https://sisqo.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-black/70 dark:hover:text-white/70"
+          >
+            SisQo
+          </a>
+        </footer>
       </main>
     </div>
   );

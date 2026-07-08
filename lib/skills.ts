@@ -8,6 +8,7 @@ export type Skill = {
   slug: string;
   name: string;
   description: string;
+  summary?: string;
   version?: string;
   license?: string;
   userInvocable?: boolean;
@@ -75,6 +76,7 @@ export async function getSkills(): Promise<Skill[]> {
         slug,
         name: data.name,
         description: data.description,
+        summary: data.summary,
         version: data.version,
         license: data.license,
         userInvocable: data["user-invocable"],
