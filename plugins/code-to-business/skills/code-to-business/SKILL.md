@@ -48,3 +48,11 @@ Tailor emphasis to the audience: `management` → outcomes, risks, costs; `produ
 - **Length**: per `--depth` (default standard, 150–400 words).
 - **Language**: follow the conversation's language, section headings included.
 - **Output**: text/markdown in chat; no file export unless explicitly requested.
+
+## Examples
+
+- `/code-to-business loyalty points --audience sales` — locates the loyalty points logic, writes a sales-facing brief at standard depth.
+- `/code-to-business src/billing/refunds --audience management --depth short` — explicit path, ~100-word brief for management.
+- `/code-to-business how password resets work --audience support --depth deep` — business concept (not a path), in-depth support-facing brief including edge cases and known limitations.
+- `/code-to-business checkout flow` — topic given, no `--audience`: ask which audience before writing anything.
+- `/code-to-business` — no arguments at all: ask what to analyze before proceeding.
