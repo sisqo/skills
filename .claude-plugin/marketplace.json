@@ -11,7 +11,7 @@
     {
       "name": "code-to-business",
       "description": "Analyzes a codebase and produces a jargon-free descriptive text for non-technical teams (management, product, sales, support).",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "sisqo"
       },
