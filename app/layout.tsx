@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "skills — Claude Code skills marketplace",
   description:
-    "sisqo's personal collection of Claude Code skills, packaged as a single installable plugin.",
+    "sisqo's personal collection of Claude Code skills, each packaged as its own installable plugin.",
 };
 
 export default function RootLayout({

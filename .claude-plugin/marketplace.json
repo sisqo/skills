@@ -2,22 +2,22 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skills",
   "metadata": {
-    "description": "Personal collection of Claude Code skills, packaged as a single plugin."
+    "description": "Personal collection of Claude Code skills, each packaged as its own installable plugin."
   },
   "owner": {
     "name": "sisqo"
   },
   "plugins": [
     {
-      "name": "skills",
-      "description": "Personal collection of Claude Code skills, packaged as a single plugin.",
+      "name": "code-to-business",
+      "description": "Analyzes a codebase and produces a jargon-free descriptive text for non-technical teams (management, product, sales, support).",
       "version": "0.1.0",
       "author": {
         "name": "sisqo"
       },
-      "source": "./plugin",
+      "source": "./plugins/code-to-business",
       "homepage": "https://skills.sisqo.dev",
-      "tags": ["skills"]
+      "tags": ["skills", "code-to-business"]
     }
   ]
 }

@@ -3,6 +3,8 @@ import path from "node:path";
 import matter from "gray-matter";
 
 export type Skill = {
+  pluginSlug: string;
+  pluginName: string;
   slug: string;
   name: string;
   description: string;
@@ -12,43 +14,73 @@ export type Skill = {
   argumentHint?: string;
 };
 
-const SKILLS_DIR = path.join(process.cwd(), "plugin", "skills");
+const PLUGINS_DIR = path.join(process.cwd(), "plugins");
 
 export async function getSkills(): Promise<Skill[]> {
-  let entries: string[];
+  let pluginSlugs: string[];
   try {
-    entries = await fs.readdir(SKILLS_DIR);
+    pluginSlugs = await fs.readdir(PLUGINS_DIR);
   } catch {
     return [];
   }
 
   const skills: Skill[] = [];
 
-  for (const slug of entries) {
-    const skillMdPath = path.join(SKILLS_DIR, slug, "SKILL.md");
-    let raw: string;
+  for (const pluginSlug of pluginSlugs) {
+    const pluginDir = path.join(PLUGINS_DIR, pluginSlug);
+    const pluginJsonPath = path.join(pluginDir, ".claude-plugin", "plugin.json");
+
+    let pluginName: string;
+    let skillsRelDir: string;
     try {
-      raw = await fs.readFile(skillMdPath, "utf-8");
+      const pluginRaw = await fs.readFile(pluginJsonPath, "utf-8");
+      const pluginData = JSON.parse(pluginRaw);
+      if (!pluginData.name) {
+        console.warn(`Skipping plugin "${pluginSlug}": plugin.json is missing name`);
+        continue;
+      }
+      pluginName = pluginData.name;
+      skillsRelDir = pluginData.skills ?? "./skills/";
     } catch {
       continue;
     }
 
-    const { data } = matter(raw);
-
-    if (!data.name || !data.description) {
-      console.warn(`Skipping "${slug}": SKILL.md is missing name or description`);
+    const skillsDir = path.join(pluginDir, skillsRelDir);
+    let skillSlugs: string[];
+    try {
+      skillSlugs = await fs.readdir(skillsDir);
+    } catch {
       continue;
     }
 
-    skills.push({
-      slug,
-      name: data.name,
-      description: data.description,
-      version: data.version,
-      license: data.license,
-      userInvocable: data["user-invocable"],
-      argumentHint: data["argument-hint"],
-    });
+    for (const slug of skillSlugs) {
+      const skillMdPath = path.join(skillsDir, slug, "SKILL.md");
+      let raw: string;
+      try {
+        raw = await fs.readFile(skillMdPath, "utf-8");
+      } catch {
+        continue;
+      }
+
+      const { data } = matter(raw);
+
+      if (!data.name || !data.description) {
+        console.warn(`Skipping "${pluginSlug}/${slug}": SKILL.md is missing name or description`);
+        continue;
+      }
+
+      skills.push({
+        pluginSlug,
+        pluginName,
+        slug,
+        name: data.name,
+        description: data.description,
+        version: data.version,
+        license: data.license,
+        userInvocable: data["user-invocable"],
+        argumentHint: data["argument-hint"],
+      });
+    }
   }
 
   return skills.sort((a, b) => a.name.localeCompare(b.name));
