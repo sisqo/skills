@@ -18,6 +18,17 @@
       "source": "./plugins/code-to-business",
       "homepage": "https://skills.sisqo.dev",
       "tags": ["skills", "code-to-business"]
+    },
+    {
+      "name": "ask-me",
+      "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree, then produce an updated plan incorporating every decision.",
+      "version": "0.1.0",
+      "author": {
+        "name": "sisqo"
+      },
+      "source": "./plugins/ask-me",
+      "homepage": "https://skills.sisqo.dev",
+      "tags": ["skills", "ask-me"]
     }
   ]
 }
