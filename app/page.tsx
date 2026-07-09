@@ -1,119 +1,176 @@
 import { getSkills } from "@/lib/skills";
+import { CopyButton } from "./copy-button";
+
+function FieldLabel({ children }: { children: string }) {
+  return (
+    <div className="mb-[10px] text-[11px] tracking-[2px] text-[#6b6b70]">
+      {children}
+    </div>
+  );
+}
+
+function ShellCommand({ command }: { command: string }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-[#23232a] bg-[#0e0e11]">
+      <div className="flex items-center justify-between border-b border-[#1c1c22] bg-[#111116] px-[15px] py-[9px]">
+        <div className="flex items-center gap-2">
+          <span className="inline-block h-[9px] w-[9px] rounded-full bg-[var(--accent)]" />
+          <span className="text-[11px] tracking-[1.5px] text-[#5f5f66]">
+            SHELL
+          </span>
+        </div>
+        <CopyButton text={command} />
+      </div>
+      <div className="flex gap-[10px] px-[18px] py-[17px] text-sm leading-[1.6] text-[#e6e6e6]">
+        <span className="text-[var(--accent)]">$</span>
+        <span>{command}</span>
+      </div>
+    </div>
+  );
+}
+
+function InstallCommand({ command }: { command: string }) {
+  return (
+    <div className="flex items-center justify-between gap-[14px] rounded-lg border border-[#23232a] bg-[#0a0a0c] px-[15px] py-3">
+      <span className="whitespace-pre-wrap break-words text-[13.5px]">
+        <span className="text-[var(--accent)]">$ </span>
+        {command}
+      </span>
+      <CopyButton text={command} />
+    </div>
+  );
+}
 
 export default async function Home() {
   const skills = await getSkills();
 
   return (
-    <div className="min-h-screen px-6 py-16 sm:px-12">
-      <main className="mx-auto flex max-w-2xl flex-col gap-10">
-        <header className="flex flex-col gap-3">
-          <h1 className="text-4xl font-bold">skills</h1>
-          <p className="text-base text-black/70 dark:text-white/70">
-            A personal collection of Claude Code skills, each packaged as its
-            own installable plugin.
-          </p>
-        </header>
+    <div className="flex min-h-screen justify-center bg-[#0a0a0b]">
+      <div className="w-full max-w-[820px] px-6 pb-16 pt-14 sm:px-10 sm:pb-[120px] sm:pt-24">
+        <div className="mb-[22px] text-xs uppercase tracking-[2.5px] text-[var(--accent)]">
+          Claude Code · Plugins
+        </div>
+        <h1 className="m-0 text-[clamp(44px,10vw,66px)] font-extrabold leading-[0.95] tracking-[-0.038em] text-[#fafafa]">
+          skills
+          <span
+            aria-hidden="true"
+            className="font-normal text-[var(--accent)] motion-safe:animate-[blink_1.1s_step-end_infinite]"
+          >
+            _
+          </span>
+        </h1>
+        <p className="mt-[22px] max-w-[56ch] text-[15px] leading-[1.65] text-[#9a9aa0]">
+          A personal collection of Claude Code skills, each packaged as its
+          own installable plugin.
+        </p>
 
-        <section className="flex flex-col gap-2">
-          <h2 className="text-lg font-semibold">Add the marketplace</h2>
-          <p className="text-sm text-black/60 dark:text-white/60">
+        <div className="my-11 h-px bg-[#1a1a1e]" />
+
+        <section>
+          <h2 className="m-0 mb-2 text-xl font-bold tracking-[-0.5px] text-[#fafafa]">
+            Add the marketplace
+          </h2>
+          <p className="mb-[18px] text-[13.5px] leading-[1.55] text-[#7b7b82]">
             One-time step. Install individual skills below afterwards.
           </p>
-          <div className="rounded-lg border border-black/10 bg-black/[.02] p-4 font-mono text-sm dark:border-white/15 dark:bg-white/[.03]">
-            /plugin marketplace add sisqo/skills
-          </div>
+          <ShellCommand command="/plugin marketplace add sisqo/skills" />
         </section>
 
-        <section className="flex flex-col gap-4">
-          <h2 className="text-lg font-semibold">Skills</h2>
-          {skills.length === 0 ? (
-            <p className="text-sm text-black/60 dark:text-white/60">
-              No skills yet.
-            </p>
-          ) : (
-            <ul className="flex flex-col gap-4">
-              {skills.map((skill) => (
-                <li
-                  key={`${skill.pluginSlug}/${skill.slug}`}
-                  className="rounded-lg border border-black/10 p-4 dark:border-white/15"
-                >
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h3 className="font-mono text-base font-semibold">
+        <div className="mb-5 mt-11 flex items-baseline gap-3">
+          <h2 className="m-0 text-xl font-bold tracking-[-0.5px] text-[#fafafa]">
+            Skills
+          </h2>
+          <span className="text-xs text-[#5f5f66]">
+            — {skills.length} available
+          </span>
+        </div>
+
+        {skills.length === 0 ? (
+          <p className="text-[13.5px] text-[#7b7b82]">No skills yet.</p>
+        ) : (
+          <ul className="flex flex-col gap-6">
+            {skills.map((skill) => (
+              <li
+                key={`${skill.pluginSlug}/${skill.slug}`}
+                className="rounded-2xl border border-[#23232a] bg-[#0e0e11] p-6 sm:p-7"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="rounded-lg bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-[13px] py-[5px] font-mono text-[17px] font-bold text-[var(--accent)]">
+                    {skill.name}
+                  </span>
+                  {skill.version && (
+                    <span className="text-xs tracking-wide text-[#5f5f66]">
+                      v{skill.version}
+                    </span>
+                  )}
+                </div>
+
+                <p className="mt-[18px] text-[13.5px] leading-[1.7] text-[#a3a3aa]">
+                  {skill.summary ?? skill.description}
+                </p>
+
+                <div className="mt-[26px]">
+                  <FieldLabel>INSTALL</FieldLabel>
+                  <InstallCommand
+                    command={`/plugin install ${skill.pluginName}@skills`}
+                  />
+                </div>
+
+                {skill.userInvocable && (
+                  <div className="mt-6">
+                    <FieldLabel>USAGE</FieldLabel>
+                    <div className="whitespace-pre-wrap break-words rounded-lg border border-[#23232a] bg-[#0a0a0c] px-[15px] py-3 text-[13px] leading-[1.65] text-[#c9c9d0]">
+                      <span className="text-[var(--accent)]">$ </span>/
                       {skill.name}
-                    </h3>
-                    {skill.version && (
-                      <span className="text-xs text-black/50 dark:text-white/50">
-                        v{skill.version}
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-2 text-sm text-black/70 dark:text-white/70">
-                    {skill.summary ?? skill.description}
-                  </p>
-
-                  <div className="mt-3">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
-                      Install
-                    </p>
-                    <div className="mt-1 rounded-md border border-black/10 bg-black/[.02] p-3 font-mono text-xs dark:border-white/15 dark:bg-white/[.03]">
-                      /plugin install {skill.pluginName}@skills
+                      {skill.argumentHint && (
+                        <span className="text-[#7b7b82]">
+                          {" "}
+                          {skill.argumentHint}
+                        </span>
+                      )}
                     </div>
                   </div>
+                )}
 
-                  {skill.userInvocable && (
-                    <div className="mt-3">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
-                        Usage
-                      </p>
-                      <div className="mt-1 rounded-md border border-black/10 bg-black/[.02] p-3 font-mono text-xs dark:border-white/15 dark:bg-white/[.03]">
-                        /{skill.name}
-                        {skill.argumentHint ? ` ${skill.argumentHint}` : ""}
-                      </div>
-                    </div>
-                  )}
+                {skill.examples && skill.examples.length > 0 && (
+                  <div className="mt-6">
+                    <FieldLabel>EXAMPLES</FieldLabel>
+                    <ul className="flex flex-col gap-[10px]">
+                      {skill.examples.map((example) => (
+                        <li
+                          key={example.command}
+                          className="rounded-lg border border-[#1c1c22] border-l-2 border-l-[var(--accent)] bg-[#0a0a0c] px-[15px] py-[13px]"
+                        >
+                          <div className="text-[13.5px] text-[#e6e6e6]">
+                            {example.command}
+                          </div>
+                          {example.description && (
+                            <p className="mt-[7px] text-[12.5px] leading-[1.55] text-[#7b7b82]">
+                              {example.description}
+                            </p>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
 
-                  {skill.examples && skill.examples.length > 0 && (
-                    <div className="mt-3">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
-                        Examples
-                      </p>
-                      <ul className="mt-1 flex flex-col gap-2">
-                        {skill.examples.map((example) => (
-                          <li
-                            key={example.command}
-                            className="rounded-md border border-black/10 bg-black/[.02] p-3 dark:border-white/15 dark:bg-white/[.03]"
-                          >
-                            <div className="font-mono text-xs">
-                              {example.command}
-                            </div>
-                            {example.description && (
-                              <p className="mt-1 text-xs text-black/60 dark:text-white/60">
-                                {example.description}
-                              </p>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <footer className="text-sm text-black/50 dark:text-white/50">
+        <footer className="mt-10 border-t border-[#1a1a1e] pt-[22px] text-center text-[13px] text-[#5f5f66]">
           by{" "}
           <a
             href="https://sisqo.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-black/70 dark:hover:text-white/70"
+            className="text-[#9a9aa0] no-underline hover:text-[#e6e6e6]"
           >
             SisQo
           </a>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }
