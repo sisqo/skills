@@ -1,7 +1,8 @@
 ---
 name: ask-me
-description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree, then produce an updated plan incorporating every decision. Use whenever the user wants to stress-test a plan, validate an architecture or spec, work through open questions in a proposal, or mentions "ask me", "interview me", or "poke holes in this" — even if they don't name the skill.
+description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree, then produce an updated plan incorporating every decision. Invoke explicitly with /ask-me to stress-test a plan, validate an architecture or spec, or work through open questions in a proposal before committing to it.
 user-invocable: true
+disable-model-invocation: true
 version: 0.1.0
 summary: >
   Puts your plan through a rigorous interview before you commit to it. One
@@ -12,8 +13,6 @@ summary: >
 examples:
   - command: "/ask-me"
     description: "Interviews you about the plan currently on the table, one question at a time, until every branch of the decision tree is resolved, then rewrites the plan with the decisions baked in."
-  - command: "stress-test this design"
-    description: "No slash command needed — phrases like \"stress-test this\", \"poke holes in this\", or \"interview me\" trigger the same interview."
 ---
 
 # Ask Me

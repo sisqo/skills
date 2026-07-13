@@ -3,13 +3,14 @@ name: clean-code
 description: >-
   Write, refactor, and review readable, maintainable code in any programming
   language through disciplined naming, small single-purpose functions, comment
-  discipline, clean error handling, and clean tests. Use this whenever the user
-  asks to write clean code, follow clean-code principles, clean up or refactor
-  for clarity, improve naming, shorten a long function, reduce complexity or
-  duplication, separate concerns, fix code smells, tighten error handling, work
-  test-first or do TDD, or review a pull request for readability and quality.
-  Apply these standards by default when producing or changing code for a
-  quality-conscious user, even when they don't say the words "clean code".
+  discipline, clean error handling, and clean tests. Invoke explicitly with
+  /clean-code to write clean code, follow clean-code principles, clean up or
+  refactor for clarity, improve naming, shorten a long function, reduce
+  complexity or duplication, separate concerns, fix code smells, tighten error
+  handling, work test-first or do TDD, or review a pull request for
+  readability and quality.
+user-invocable: true
+disable-model-invocation: true
 version: 1.1.0
 summary: >
   Bakes disciplined naming, small single-purpose functions, comment hygiene,
@@ -19,11 +20,11 @@ summary: >
   handling, testing, code smells) carry the language-agnostic rules plus
   per-language idiom notes, loaded on demand instead of all at once.
 examples:
-  - command: "write a function to validate a coupon code"
-    description: "Applies clean-code discipline while writing new code — descriptive names, a single-purpose function, explicit error handling — without being asked for it by name."
-  - command: "this function is 200 lines long, clean it up"
+  - command: "/clean-code write a function to validate a coupon code"
+    description: "Writes the function applying clean-code discipline from the start — descriptive names, a single-purpose function, explicit error handling."
+  - command: "/clean-code this function is 200 lines long, clean it up"
     description: "Diagnoses the code smells (long function, duplication, mixed abstraction levels) and refactors in small, tested steps, extracting well-named helpers."
-  - command: "review this PR for readability"
+  - command: "/clean-code review this PR for readability"
     description: "Scores the diff against the six clean-code disciplines and reports concrete gaps to close before merge."
 ---
 
