@@ -29,6 +29,17 @@
       "source": "./plugins/ask-me",
       "homepage": "https://skills.sisqo.dev",
       "tags": ["skills", "ask-me"]
+    },
+    {
+      "name": "clean-code",
+      "description": "Write, refactor, and review readable, maintainable code in any programming language through disciplined naming, small single-purpose functions, comment discipline, clean error handling, and clean tests.",
+      "version": "1.1.0",
+      "author": {
+        "name": "sisqo"
+      },
+      "source": "./plugins/clean-code",
+      "homepage": "https://skills.sisqo.dev",
+      "tags": ["skills", "clean-code"]
     }
   ]
 }
