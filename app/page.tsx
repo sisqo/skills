@@ -101,8 +101,9 @@ export default async function Home() {
         </h1>
         <p className="mt-5 max-w-[56ch] text-[14px] leading-[1.75] text-[#98a19a]">
           A personal collection of Claude Code skills, each packaged as its
-          own installable plugin. Install via the Claude Code marketplace, or
-          download any skill as a .zip for Claude.ai.
+          own installable plugin. Built to be lightweight and direct — no
+          unnecessary ceremony, just enough structure to get things done
+          well.
         </p>
 
         <div className="my-11 h-px bg-[#161b16]" />
