@@ -40,6 +40,17 @@
       "source": "./plugins/clean-code",
       "homepage": "https://skills.sisqo.dev",
       "tags": ["skills", "clean-code"]
+    },
+    {
+      "name": "brainstorming",
+      "description": "Lightweight, fast brainstorming for creative or architectural work — feature design, new components, API shape, refactors, behavioral changes. Understand intent, weigh options, pick a direction, move.",
+      "version": "0.1.0",
+      "author": {
+        "name": "sisqo"
+      },
+      "source": "./plugins/brainstorming",
+      "homepage": "https://skills.sisqo.dev",
+      "tags": ["skills", "brainstorming"]
     }
   ]
 }
