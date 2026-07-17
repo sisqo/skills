@@ -23,13 +23,11 @@ function withEmphasis(text: string): ReactNode[] {
 export function SkillRow({
   skill,
   index,
-  defaultOpen = false,
 }: {
   skill: Skill;
   index: number;
-  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="border-t border-[rgba(255,255,255,0.06)]">

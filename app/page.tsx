@@ -26,11 +26,22 @@ export default async function Home() {
             _
           </span>
         </h1>
-        <p className="mt-5 max-w-[56ch] text-[14px] leading-[1.75] text-[#98a19a]">
+        <p className="mt-5 text-[14px] leading-[1.75] text-[#98a19a] sm:text-justify">
           A personal collection of Claude Code skills, each packaged as its
-          own installable plugin. Built to be lightweight and direct — no
-          unnecessary ceremony, just enough structure to get things done
-          well.
+          own installable plugin. Built to be{" "}
+          <strong className="font-semibold text-[#c6d0c9]">
+            lightweight and direct
+          </strong>{" "}
+          —{" "}
+          <strong className="font-semibold text-[#c6d0c9]">
+            no unnecessary ceremony
+          </strong>
+          ,{" "}
+          <strong className="font-semibold text-[#c6d0c9]">
+            just enough structure
+          </strong>{" "}
+          to get things done well, so you spend more time building and less
+          time explaining.
         </p>
 
         <div className="my-11 h-px bg-[#161b16]" />
@@ -43,7 +54,7 @@ export default async function Home() {
             — {skills.length} available
           </span>
         </div>
-        <p className="m-0 mt-2 max-w-[56ch] text-[12px] leading-[1.7] text-[#6f7d75]">
+        <p className="m-0 mt-2 text-[12px] leading-[1.7] text-[#6f7d75] sm:text-justify">
           Each skill is packaged as its own installable plugin. Pick one to
           see what it does, examples, and how to install it.
         </p>
@@ -57,7 +68,6 @@ export default async function Home() {
                 key={`${skill.pluginSlug}/${skill.slug}`}
                 skill={skill}
                 index={index}
-                defaultOpen={index === 0}
               />
             ))}
             <div className="border-t border-[rgba(255,255,255,0.06)]" />
