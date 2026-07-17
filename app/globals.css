@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --accent: #7ec79b;
-  --accent-hover: #9fd9b4;
+  --accent: #7ee787;
+  --accent-hover: #9befb0;
 }
 
 @keyframes blink {
@@ -25,6 +25,6 @@
 }
 
 body {
-  background: #080a08;
+  background: #07100b;
   color: #c4ccc6;
 }

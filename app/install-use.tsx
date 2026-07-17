@@ -5,7 +5,7 @@ import { CopyButton } from "./copy-button";
 
 function StepNumber({ n }: { n: number }) {
   return (
-    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] bg-[var(--accent)] text-[11px] font-bold text-[#08130c]">
+    <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] bg-[var(--accent)] text-[11px] font-bold text-[#08120b]">
       {n}
     </span>
   );
@@ -13,10 +13,9 @@ function StepNumber({ n }: { n: number }) {
 
 function StepShell({ command }: { command: string }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-lg border border-[#1a201b] bg-[#0a0c0a] px-[14px] py-3">
-      <span className="whitespace-pre-wrap break-words text-[13px]">
-        <span className="text-[var(--accent)]">$</span>{" "}
-        <span className="text-[#c4ccc6]">{command}</span>
+    <div className="flex items-center justify-between gap-3 rounded-[7px] border border-[rgba(255,255,255,0.06)] bg-[#0d110e] px-3 py-[10px]">
+      <span className="whitespace-pre-wrap break-words text-[11.5px] text-[#c6d0c9]">
+        <span className="text-[#5f6b63]">$</span> {command}
       </span>
       <CopyButton text={command} />
     </div>
@@ -35,22 +34,19 @@ export function InstallUse({
   const [tab, setTab] = useState<"cc" | "ai">("cc");
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-[#1e251f] bg-[#090c09] p-6">
-      <div className="flex items-center gap-[9px]">
-        <span className="h-[5px] w-[5px] shrink-0 rounded-[1px] bg-[var(--accent)]" />
-        <span className="text-xs font-bold tracking-[2px] text-[#d6ddd8]">
-          INSTALL &amp; USE
-        </span>
+    <div className="rounded-[10px] border border-[rgba(255,255,255,0.06)] bg-[#0b0e0c] p-4">
+      <div className="mb-[14px] text-[10px] font-bold tracking-[0.22em] text-[var(--accent)]">
+        ▸ INSTALL &amp; USE
       </div>
 
-      <div className="flex gap-1 rounded-[10px] border border-[#1a201b] bg-[#0a0c0a] p-1">
+      <div className="mb-4 inline-flex gap-[2px] rounded-[7px] border border-[rgba(255,255,255,0.07)] bg-[#0d110e] p-[2px]">
         <button
           type="button"
           onClick={() => setTab("cc")}
-          className={`flex-1 rounded-[7px] py-[9px] text-center text-[12.5px] transition-colors ${
+          className={`rounded-[5px] px-[13px] py-[5px] text-[11px] font-semibold transition-colors ${
             tab === "cc"
-              ? "bg-[var(--accent)] font-bold text-[#08130c]"
-              : "bg-transparent font-semibold text-[#8a938c]"
+              ? "bg-[var(--accent)] text-[#08120b]"
+              : "bg-transparent text-[#8a968e]"
           }`}
         >
           Claude Code
@@ -58,10 +54,10 @@ export function InstallUse({
         <button
           type="button"
           onClick={() => setTab("ai")}
-          className={`flex-1 rounded-[7px] py-[9px] text-center text-[12.5px] transition-colors ${
+          className={`rounded-[5px] px-[13px] py-[5px] text-[11px] font-semibold transition-colors ${
             tab === "ai"
-              ? "bg-[var(--accent)] font-bold text-[#08130c]"
-              : "bg-transparent font-semibold text-[#8a938c]"
+              ? "bg-[var(--accent)] text-[#08120b]"
+              : "bg-transparent text-[#8a968e]"
           }`}
         >
           Claude.ai
@@ -69,23 +65,23 @@ export function InstallUse({
       </div>
 
       {tab === "cc" ? (
-        <div className="flex flex-col gap-5 pt-0.5">
-          <div className="flex flex-col gap-[9px]">
-            <div className="flex items-center gap-[10px]">
+        <div className="flex flex-col gap-[14px]">
+          <div>
+            <div className="mb-2 flex items-center gap-2">
               <StepNumber n={1} />
-              <span className="text-[13px] text-[#c4ccc6]">
+              <span className="text-[12px] text-[#c6d0c9]">
                 Add the marketplace
               </span>
-              <span className="rounded-[5px] border border-[#262d27] px-[7px] py-[2px] text-[10.5px] tracking-wide text-[#5a625c]">
+              <span className="rounded-[3px] border border-[rgba(255,255,255,0.12)] px-[5px] py-[2px] text-[8.5px] tracking-[0.16em] text-[#5f6b63]">
                 ONCE
               </span>
             </div>
             <StepShell command="/plugin marketplace add sisqo/skills" />
           </div>
-          <div className="flex flex-col gap-[9px]">
-            <div className="flex items-center gap-[10px]">
+          <div>
+            <div className="mb-2 flex items-center gap-2">
               <StepNumber n={2} />
-              <span className="text-[13px] text-[#c4ccc6]">
+              <span className="text-[12px] text-[#c6d0c9]">
                 Install the skill
               </span>
             </div>
@@ -93,30 +89,35 @@ export function InstallUse({
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-5 pt-0.5">
-          <div className="flex flex-col gap-[9px]">
-            <div className="flex items-center gap-[10px]">
+        <div className="flex flex-col gap-[14px]">
+          <div>
+            <div className="mb-2 flex items-center gap-2">
               <StepNumber n={1} />
-              <span className="text-[13px] text-[#c4ccc6]">
-                Download the skill package
+              <span className="text-[12px] text-[#c6d0c9]">
+                Download the skill
               </span>
             </div>
             <a
               href={zipUrl}
               download
-              className="mt-1 inline-flex w-fit items-center gap-2 rounded-lg border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_8%,transparent)] px-[18px] py-[10px] text-[13px] font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[color-mix(in_srgb,var(--accent)_18%,transparent)]"
+              className="flex items-center justify-between gap-3 rounded-[7px] border border-[rgba(126,231,135,0.18)] bg-[#0d110e] px-3 py-[10px] no-underline"
             >
-              ↓ Download {zipName}
+              <span className="text-[11.5px] text-[var(--accent-hover)]">
+                {zipName}
+              </span>
+              <span className="text-[9px] tracking-[0.14em] text-[#5f6b63]">
+                DOWNLOAD ↓
+              </span>
             </a>
           </div>
-          <div className="flex flex-col gap-[9px]">
-            <div className="flex items-center gap-[10px]">
+          <div>
+            <div className="mb-2 flex items-center gap-2">
               <StepNumber n={2} />
-              <span className="text-[13px] text-[#c4ccc6]">
+              <span className="text-[12px] text-[#c6d0c9]">
                 Upload it as a Skill in Claude.ai
               </span>
             </div>
-            <div className="rounded-lg border border-[#1a201b] bg-[#0a0c0a] px-[14px] py-3 text-[13px] text-[#98a19a]">
+            <div className="rounded-[7px] border border-[rgba(255,255,255,0.06)] bg-[#0d110e] px-3 py-[10px] text-[11.5px] text-[#9aa79f]">
               Settings → Capabilities → Skills → Upload skill
             </div>
           </div>

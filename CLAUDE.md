@@ -36,7 +36,7 @@ Validate manifests with `claude plugin validate <path>` — point it at a plugin
 ## SKILL.md frontmatter: two audiences, don't mix them up
 
 - `name`, `description`, `version`, `license`, `user-invocable`, `argument-hint`, `allowed-tools` — read by Claude Code itself to decide when/how to invoke the skill. `description` in particular is deliberately keyword-dense, third-person "use when..." phrasing aimed at Claude's own routing, not at a human reader.
-- `summary` and `examples` (array of `{command, description}`) — custom fields understood only by `lib/skills.ts`, ignored by Claude Code's skill loader. These exist purely so the showcase page can show human-friendly copy and usage examples without that content ever being sent to Claude as part of the skill's operational instructions. When editing what a skill *says on the website*, edit these; when editing what a skill *does*, edit the body/`description`.
+- `summary`, `tagline`, and `examples` (array of `{command, description}`) — custom fields understood only by `lib/skills.ts`, ignored by Claude Code's skill loader. These exist purely so the showcase page can show human-friendly copy and usage examples without that content ever being sent to Claude as part of the skill's operational instructions. `tagline` is the one-line teaser shown on the collapsed skill row; `summary` is the fuller description shown once expanded. When editing what a skill *says on the website*, edit these; when editing what a skill *does*, edit the body/`description`.
 
 ## Showcase page architecture
 

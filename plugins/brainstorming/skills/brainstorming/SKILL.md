@@ -5,6 +5,7 @@ disable-model-invocation: true
 user-invocable: true
 argument-hint: "[feature, refactor, or design question to think through — omit to brainstorm on what's already on the table]"
 version: 0.1.0
+tagline: "Idea → actionable direction, fast: 2–3 trade-off-weighed options."
 summary: >
   Moves you from idea to **actionable direction** fast — for feature design,
   new components, API shape, refactors, or behavioral changes. Explores

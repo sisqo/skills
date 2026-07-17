@@ -5,6 +5,7 @@ user-invocable: true
 disable-model-invocation: true
 argument-hint: "[topic-or-path — omit to be asked] [--audience management|product|sales|support] [--depth short|standard|deep]"
 version: 0.2.0
+tagline: "Turns any part of your codebase into a plain-language brief."
 summary: >
   Turn any part of your codebase into **a brief anyone can understand**. Name
   a module or just describe the concept — "how password resets work" — and

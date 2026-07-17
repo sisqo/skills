@@ -13,6 +13,7 @@ user-invocable: true
 disable-model-invocation: true
 argument-hint: "[code, task, or file to write, refactor, or review — omit to just apply clean-code discipline going forward]"
 version: 1.1.0
+tagline: "Bakes clean-code discipline into everything you write or review."
 summary: >
   Bakes **disciplined naming, small single-purpose functions, comment
   hygiene, clean error handling, and test-first habits** into any code you

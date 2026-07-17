@@ -5,6 +5,7 @@ user-invocable: true
 disable-model-invocation: true
 argument-hint: "[plan or topic to interview about — omit to use the plan already on the table]"
 version: 0.1.0
+tagline: "Interviews your plan before you commit — one question at a time."
 summary: >
   Puts your plan through a **rigorous interview** before you commit to it.
   **One question at a time**, dependencies resolved in order, **a
