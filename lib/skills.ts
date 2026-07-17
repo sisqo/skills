@@ -20,6 +20,7 @@ export type Skill = {
   argumentHint?: string;
   examples?: SkillExample[];
   githubUrl: string;
+  zipUrl: string;
 };
 
 const REPO_ROOT = process.cwd();
@@ -113,6 +114,7 @@ export async function getSkills(): Promise<Skill[]> {
           .relative(REPO_ROOT, skillMdPath)
           .split(path.sep)
           .join("/")}`,
+        zipUrl: `/downloads/${data.name}.zip`,
       });
     }
   }

@@ -41,6 +41,36 @@ function InstallCommand({ command }: { command: string }) {
   );
 }
 
+function DownloadZip({ url }: { url: string }) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-[14px] rounded-lg border border-[#23232a] bg-[#0a0a0c] px-[15px] py-3">
+      <span className="text-[13px] leading-[1.5] text-[#9a9aa0]">
+        Upload this file as a Skill in Claude.ai
+      </span>
+      <a
+        href={url}
+        download
+        className="flex shrink-0 items-center gap-[6px] rounded-md bg-[color-mix(in_srgb,var(--accent)_14%,transparent)] px-[12px] py-[7px] text-[12.5px] font-medium text-[var(--accent)] no-underline transition-colors hover:bg-[color-mix(in_srgb,var(--accent)_22%,transparent)]"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 20 20"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4.5 14v1.5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V14" />
+        </svg>
+        Download .zip
+      </a>
+    </div>
+  );
+}
+
 export default async function Home() {
   const skills = await getSkills();
 
@@ -152,6 +182,11 @@ export default async function Home() {
                   <InstallCommand
                     command={`/plugin install ${skill.pluginName}@skills`}
                   />
+                </div>
+
+                <div className="mt-6">
+                  <FieldLabel>USE IN CLAUDE.AI</FieldLabel>
+                  <DownloadZip url={skill.zipUrl} />
                 </div>
 
                 {skill.userInvocable && (

@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# generated skill zips (rebuilt by scripts/generate-skill-zips.mjs)
+/public/downloads/
+
 # production
 /build
 
