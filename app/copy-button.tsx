@@ -26,9 +26,9 @@ export function CopyButton({
       type="button"
       onClick={handleCopy}
       aria-label={`Copy "${text}" to clipboard`}
-      className={`shrink-0 cursor-pointer bg-transparent font-mono text-[11px] tracking-wide text-[#6b6b70] transition-colors hover:text-[var(--accent)] focus-visible:text-[var(--accent)] focus-visible:outline-none ${className}`}
+      className={`shrink-0 cursor-pointer bg-transparent font-mono text-[10.5px] tracking-[1px] text-[#6b756e] transition-colors hover:text-[var(--accent)] focus-visible:text-[var(--accent)] focus-visible:outline-none ${className}`}
     >
-      {copied ? "copied ✓" : "copy"}
+      {copied ? "COPIED ✓" : "COPY"}
     </button>
   );
 }

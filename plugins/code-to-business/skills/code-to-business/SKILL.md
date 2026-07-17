@@ -6,14 +6,15 @@ disable-model-invocation: true
 argument-hint: "[topic-or-path — omit to be asked] [--audience management|product|sales|support] [--depth short|standard|deep]"
 version: 0.2.0
 summary: >
-  Turn any part of your codebase into a brief anyone can understand. Name a
-  module or just describe the concept — "how password resets work" — and it
-  finds the relevant code, then explains it in plain language, with zero
-  technical jargon. It checks in with you first to confirm exactly what's in
-  scope, so the brief covers what you actually meant, not a guess. Tailor the
-  result to your audience (management, product, sales, or support) and choose
-  how much detail you want. Perfect for stakeholder updates, product docs, or
-  answering "wait, how does this actually work?"
+  Turn any part of your codebase into **a brief anyone can understand**. Name
+  a module or just describe the concept — "how password resets work" — and
+  it finds the relevant code, then explains it in plain language, with
+  **zero technical jargon**. It checks in with you first to **confirm
+  exactly what**'s in scope, so the brief covers what you actually meant,
+  not a guess. **Tailor the result to your audience** (management, product,
+  sales, or support) and choose how much detail you want. Perfect for
+  stakeholder updates, product docs, or answering "wait, how does this
+  actually work?"
 examples:
   - command: "/code-to-business loyalty points --audience sales"
     description: "Explores the loyalty points logic, confirms scope with you (e.g. earning vs. redemption), then writes a sales-facing brief at standard depth."

@@ -13,12 +13,13 @@ user-invocable: true
 disable-model-invocation: true
 version: 1.1.0
 summary: >
-  Bakes disciplined naming, small single-purpose functions, comment hygiene,
-  clean error handling, and test-first habits into any code you write, change,
-  or review — automatically, without needing to ask for "clean code" by name.
-  Six reference guides (naming, functions, comments/formatting, error
-  handling, testing, code smells) carry the language-agnostic rules plus
-  per-language idiom notes, loaded on demand instead of all at once.
+  Bakes **disciplined naming, small single-purpose functions, comment
+  hygiene, clean error handling, and test-first habits** into any code you
+  write, change, or review — **automatically**, without needing to ask for
+  "clean code" by name. **Six reference guides** (naming, functions,
+  comments/formatting, error handling, testing, code smells) carry the
+  language-agnostic rules plus per-language idiom notes, **loaded on
+  demand** instead of all at once.
 examples:
   - command: "/clean-code write a function to validate a coupon code"
     description: "Writes the function applying clean-code discipline from the start — descriptive names, a single-purpose function, explicit error handling."

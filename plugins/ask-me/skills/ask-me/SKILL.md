@@ -5,11 +5,12 @@ user-invocable: true
 disable-model-invocation: true
 version: 0.1.0
 summary: >
-  Puts your plan through a rigorous interview before you commit to it. One
-  question at a time, dependencies resolved in order, a recommended answer
-  always offered first — and shaky answers get pushed back on once before
-  moving on. When every branch is settled, you get the plan back rewritten
-  with the decisions baked in, not a transcript to reread.
+  Puts your plan through a **rigorous interview** before you commit to it.
+  **One question at a time**, dependencies resolved in order, **a
+  recommended answer always offered first** — and shaky answers get pushed
+  back on once before moving on. When every branch is settled, you get the
+  plan back rewritten with **the decisions baked in**, not a transcript to
+  reread.
 examples:
   - command: "/ask-me"
     description: "Interviews you about the plan currently on the table, one question at a time, until every branch of the decision tree is resolved, then rewrites the plan with the decisions baked in."
