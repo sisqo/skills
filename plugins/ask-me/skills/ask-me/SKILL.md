@@ -3,6 +3,7 @@ name: ask-me
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree, then produce an updated plan incorporating every decision. Invoke explicitly with /ask-me to stress-test a plan, validate an architecture or spec, or work through open questions in a proposal before committing to it.
 user-invocable: true
 disable-model-invocation: true
+argument-hint: "[plan or topic to interview about — omit to use the plan already on the table]"
 version: 0.1.0
 summary: >
   Puts your plan through a **rigorous interview** before you commit to it.

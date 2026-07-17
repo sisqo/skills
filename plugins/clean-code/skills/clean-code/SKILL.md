@@ -11,6 +11,7 @@ description: >-
   readability and quality.
 user-invocable: true
 disable-model-invocation: true
+argument-hint: "[code, task, or file to write, refactor, or review — omit to just apply clean-code discipline going forward]"
 version: 1.1.0
 summary: >
   Bakes **disciplined naming, small single-purpose functions, comment
