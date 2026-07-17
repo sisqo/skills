@@ -18,6 +18,12 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   background: #080a08;
   color: #c4ccc6;

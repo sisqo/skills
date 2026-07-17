@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { getSkills } from "@/lib/skills";
+import { getSkills, type Skill } from "@/lib/skills";
 import { InstallUse } from "./install-use";
 
 function withEmphasis(text: string): ReactNode[] {
@@ -59,6 +59,22 @@ function CardSection({
   );
 }
 
+function SkillIndex({ skills }: { skills: Skill[] }) {
+  return (
+    <nav aria-label="Jump to skill" className="mt-5 flex flex-wrap gap-2">
+      {skills.map((skill) => (
+        <a
+          key={`${skill.pluginSlug}/${skill.slug}`}
+          href={`#skill-${skill.slug}`}
+          className="rounded-md border border-[#1a201b] bg-[#0d100e] px-3 py-[6px] font-mono text-[12.5px] text-[#98a19a] no-underline transition-colors hover:border-[color-mix(in_srgb,var(--accent)_45%,transparent)] hover:text-[var(--accent)]"
+        >
+          {skill.name}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export default async function Home() {
   const skills = await getSkills();
 
@@ -100,6 +116,8 @@ export default async function Home() {
           </span>
         </div>
 
+        {skills.length > 1 && <SkillIndex skills={skills} />}
+
         {skills.length === 0 ? (
           <p className="mt-6 text-[13.5px] text-[#98a19a]">No skills yet.</p>
         ) : (
@@ -107,7 +125,8 @@ export default async function Home() {
             {skills.map((skill) => (
               <li
                 key={`${skill.pluginSlug}/${skill.slug}`}
-                className="flex flex-col gap-6 rounded-2xl border border-[#1a201b] bg-[#0d100e] p-6 sm:p-8"
+                id={`skill-${skill.slug}`}
+                className="flex scroll-mt-6 flex-col gap-6 rounded-2xl border border-[#1a201b] bg-[#0d100e] p-6 sm:p-8"
               >
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <span className="rounded-lg border border-[color-mix(in_srgb,var(--accent)_25%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-[14px] py-[7px] font-mono text-[18px] font-semibold text-[var(--accent)]">
