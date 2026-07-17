@@ -19,9 +19,12 @@ export type Skill = {
   userInvocable?: boolean;
   argumentHint?: string;
   examples?: SkillExample[];
+  githubUrl: string;
 };
 
-const PLUGINS_DIR = path.join(process.cwd(), "plugins");
+const REPO_ROOT = process.cwd();
+const PLUGINS_DIR = path.join(REPO_ROOT, "plugins");
+const GITHUB_REPO_URL = "https://github.com/sisqo/skills";
 
 export async function getSkills(): Promise<Skill[]> {
   let pluginSlugs: string[];
@@ -106,6 +109,10 @@ export async function getSkills(): Promise<Skill[]> {
         userInvocable: data["user-invocable"],
         argumentHint: data["argument-hint"],
         examples,
+        githubUrl: `${GITHUB_REPO_URL}/blob/main/${path
+          .relative(REPO_ROOT, skillMdPath)
+          .split(path.sep)
+          .join("/")}`,
       });
     }
   }
