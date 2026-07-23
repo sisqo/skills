@@ -1,7 +1,7 @@
 {
   "name": "brainstorming",
-  "description": "Lightweight, fast brainstorming for creative or architectural work — feature design, new components, API shape, refactors, behavioral changes. Understand intent, weigh options, pick a direction, move.",
-  "version": "0.1.0",
+  "description": "Divergent exploration to find the right idea for creative or architectural work — feature design, new components, API shape, refactors, behavioral changes. Reframe the real need, generate many genuinely different paths from the requirement, pressure-test them, and surface the ones that survive.",
+  "version": "0.2.0",
   "author": {
     "name": "sisqo"
   },
