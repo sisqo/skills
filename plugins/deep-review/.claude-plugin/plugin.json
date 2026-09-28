@@ -1,0 +1,11 @@
+{
+  "name": "deep-review",
+  "description": "Exhaustively review the current branch's changes (or, on main/develop, the last working day's commits) for bugs, regressions, security holes, and severe performance issues — repeated passes until a full pass finds nothing new, with every finding verified before it is reported.",
+  "version": "0.1.0",
+  "author": {
+    "name": "sisqo"
+  },
+  "homepage": "https://skills.sisqo.dev",
+  "repository": "https://github.com/sisqo/skills",
+  "skills": "./skills/"
+}

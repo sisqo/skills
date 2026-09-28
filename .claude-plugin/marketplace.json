@@ -51,6 +51,17 @@
       "source": "./plugins/brainstorming",
       "homepage": "https://skills.sisqo.dev",
       "tags": ["skills", "brainstorming"]
+    },
+    {
+      "name": "deep-review",
+      "description": "Exhaustively review the current branch's changes (or, on main/develop, the last working day's commits) for bugs, regressions, security holes, and severe performance issues — repeated passes until a full pass finds nothing new, with every finding verified before it is reported.",
+      "version": "0.1.0",
+      "author": {
+        "name": "sisqo"
+      },
+      "source": "./plugins/deep-review",
+      "homepage": "https://skills.sisqo.dev",
+      "tags": ["skills", "deep-review"]
     }
   ]
 }
