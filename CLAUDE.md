@@ -44,6 +44,10 @@ Validate manifests with `claude plugin validate <path>` — point it at a plugin
 
 This must stay statically rendered (`next build` output should show `○` / "Static" for `/`): no `dynamic = "force-dynamic"`, no `cookies()`/`headers()`/`searchParams` in that component. Static rendering means the `fs` reads happen once at build time and get baked into the output — if the route ever becomes dynamic, Vercel's file-tracing can fail to bundle `plugins/**` into the serverless function and break in production while still working locally. If dynamic rendering is ever required, add `outputFileTracingIncludes: { "/": ["./plugins/**"] }` to `next.config.ts` first.
 
+## Footer commit SHA
+
+The footer shows the deployed commit's short SHA, linked to GitHub. `next.config.ts` resolves it at build time (`VERCEL_GIT_COMMIT_SHA` on Vercel, `git rev-parse HEAD` locally) and inlines it as `process.env.COMMIT_SHA` — a build-time constant, so it doesn't break static rendering. The footer hides it if neither source is available.
+
 ## Per-skill zip downloads (Claude.ai import)
 
 Each skill card on the showcase page also links to a `.zip` of that skill,

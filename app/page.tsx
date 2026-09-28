@@ -4,6 +4,7 @@ import { SkillRow } from "./skill-row";
 
 export default async function Home() {
   const skills = await getSkills();
+  const commitSha = process.env.COMMIT_SHA;
 
   return (
     <div className="flex min-h-screen justify-center bg-[#07100b]">
@@ -85,6 +86,19 @@ export default async function Home() {
           >
             SisQo
           </a>
+          {commitSha && (
+            <>
+              {" · "}
+              <a
+                href={`https://github.com/sisqo/skills/commit/${commitSha}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6b756e] no-underline hover:text-[var(--accent-hover)]"
+              >
+                {commitSha.slice(0, 7)}
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>
